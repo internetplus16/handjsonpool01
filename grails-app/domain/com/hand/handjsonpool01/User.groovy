@@ -9,6 +9,8 @@ class User {
     Date lastUpdateDate
 
     static constraints = {
-        
+        id (min:1)
+        loginName(blank:false)
+        password(password:true)
     }
 }
