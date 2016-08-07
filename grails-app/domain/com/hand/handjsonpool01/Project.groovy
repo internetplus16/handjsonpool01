@@ -8,7 +8,7 @@ class Project {
     Date lastUpdateDate;
 
 //    static belongsTo = [user:User];
-//    static hasMany = [json:Json]
+    static hasMany = [json:Json]
     static constraints = {
     }
     String toString(){

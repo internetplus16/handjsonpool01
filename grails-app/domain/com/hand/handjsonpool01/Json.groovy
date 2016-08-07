@@ -10,14 +10,16 @@ class Json {
 		//startDate(validator:{return (it>new Date())})
 		dateCreated()
 		lastUpdated()
-//		Project project
+//		project()
     }
-	
+
+	static belongsTo = [project:Project]
+
 	Integer id
 	String placeholderUrl
 	String method
 	String jsonData
-//	Project project
+	Project project
 	Date dateCreated
 	Date lastUpdated
 	String toString()
