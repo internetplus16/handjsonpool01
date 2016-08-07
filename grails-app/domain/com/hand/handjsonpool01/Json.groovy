@@ -7,8 +7,9 @@ class Json {
 		placeholderUrl(blank: false)
 		method(inList:["Get","Posts","Delete","Put"])
 		jsonData(blank: false)
-		startDate(validator:{return (it>new Date())})
-		lastUpdateDate(validator: {return (it>startDate)} )
+		//startDate(validator:{return (it>new Date())})
+		dateCreated()
+		lastUpdated()
 //		Project project
     }
 	
@@ -17,8 +18,8 @@ class Json {
 	String method
 	String jsonData
 //	Project project
-	Date createDate
-	Date lastUpdateDate
+	Date dateCreated
+	Date lastUpdated
 	String toString()
 	{
 		return "${id},${placeholderUrl}"
