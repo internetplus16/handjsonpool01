@@ -10,6 +10,15 @@ class Project {
 //    static belongsTo = [user:User];
     static hasMany = [json:Json]
     static constraints = {
+        id();
+        projectName(blank: false);
+<<<<<<< HEAD
+        description(blank: flase);
+=======
+        description(blank: false);
+>>>>>>> 10717
+        creationDate();
+        lastUpdateDate();
     }
     String toString(){
         "${projectName}"
