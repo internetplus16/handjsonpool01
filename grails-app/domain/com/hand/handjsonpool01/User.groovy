@@ -12,5 +12,7 @@ class User {
         id (min:1)
         loginName(blank:false)
         password(password:true)
+        phone()
+        creationDate(min:new Date())
     }
 }
