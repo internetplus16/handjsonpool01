@@ -7,14 +7,9 @@ class Project {
     Date creationDate;
     Date lastUpdateDate;
 
-//    static belongsTo = [user:User];
-//    static hasMany = [json:Json]
+    static belongsTo = [user:User];
+    static hasMany = [json:Json]
     static constraints = {
-        id();
-        projectName(blank: false);
-        description(blank: false);
-        creationDate();
-        lastUpdateDate();
     }
     String toString(){
         "${projectName}"
