@@ -19,6 +19,6 @@ class User {
     }
     static hasMany=[project:Project]
         String toString(){
-        return "${name},${creationDate}"
+        return "${loginName},${creationDate}"
     }
 }

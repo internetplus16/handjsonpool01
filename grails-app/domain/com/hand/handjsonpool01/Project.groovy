@@ -15,8 +15,10 @@ class Project {
         description(blank: false);
         creationDate();
         lastUpdateDate();
+        user();
+        json();
     }
     String toString(){
-        "${projectName}"
+//        "${projectName}"
     }
 }
