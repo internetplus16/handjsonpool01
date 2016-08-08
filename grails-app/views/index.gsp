@@ -57,12 +57,14 @@
 
 			#controller-list ul {
 				list-style-position: inside;
+				list-style-type: none;
 			}
 
 			#controller-list li {
 				line-height: 1.3;
 				list-style-position: inside;
 				margin: 0.25em 0;
+				/*float: left;*/
 			}
 
 			@media screen and (max-width: 480px) {
@@ -82,7 +84,7 @@
 	</head>
 	<body>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
+		%{--<div id="status" role="complementary">
 			<h1>Application Status</h1>
 			<ul>
 				<li>App version: <g:meta name="app.version"/></li>
@@ -101,19 +103,19 @@
 					<li>${plugin.name} - ${plugin.version}</li>
 				</g:each>
 			</ul>
-		</div>
+		</div>--}%
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
+			<h1>Welcome to HandJsonPool</h1>
+			%{--<p>Congratulations, you have successfully started your first Grails application! At the moment
 			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
 			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+			   click on each to execute its default action:</p>--}%
 
 			<div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
+						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.logicalPropertyName}</g:link></li>
 					</g:each>
 				</ul>
 			</div>

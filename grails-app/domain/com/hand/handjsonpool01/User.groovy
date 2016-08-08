@@ -1,7 +1,7 @@
 package com.hand.handjsonpool01
 
 class User {
-    Integer id
+    int id
     String loginName
     String password
     String phone
@@ -9,10 +9,16 @@ class User {
     Date lastUpdateDate
 
     static constraints = {
-        id (min:1)
+        id ()
         loginName(blank:false)
         password(password:true)
         phone()
-        creationDate(min:new Date())
+        creationDate()
+        lastUpdateDate()
+        project()
+    }
+    static hasMany=[project:Project]
+        String toString(){
+        return "${name},${creationDate}"
     }
 }
