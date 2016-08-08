@@ -19,6 +19,6 @@ class Project {
         json();
     }
     String toString(){
-//        "${projectName}"
+        "${projectName}"
     }
 }

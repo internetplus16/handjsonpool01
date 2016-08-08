@@ -21,4 +21,7 @@ class User {
         String toString(){
         return "${loginName},${creationDate}"
     }
+    static mappings = {
+        "/index/"(view:"/index")
+    }
 }

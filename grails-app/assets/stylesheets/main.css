@@ -594,3 +594,8 @@ a.skip {
 	position: absolute;
 	left: -9999px;
 }
+#header{
+	float: right;
+	text-decoration: none;
+	list-style: none;
+}
