@@ -21,7 +21,24 @@ class UserController {
     def create() {
         respond new User(params)
     }
-
+    def login ={
+    }
+    def logout = {
+        session.user = null
+        redirect(action: "login")
+    }
+    def authenticate = {
+        def user = User.findByLoginNameAndPassword(
+                params.loginName,params.password);
+        if(user){
+            session.user = user;
+            flash.message = "Hello ${user.loginName}!";
+            redirect(controller:"User",action:"index")
+        }else{
+            flash.message = "sorry,${params.loginName}. Please try again."
+            redirect(action:"login");
+        }
+    }
     @Transactional
     def save(User userInstance) {
         if (userInstance == null) {
