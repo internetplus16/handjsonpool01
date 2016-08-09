@@ -11,17 +11,33 @@ class ProjectController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+
         respond Project.list(params), model: [projectInstanceCount: Project.count()]
+       /* def projectInstance = Project.list(params);
+        if (session.user.loginName==projectInstance.user.loginName||session.user.loginName == "admin"){
+            respond projectInstance
+        }*/
     }
 
     def show(Project projectInstance) {
-        respond projectInstance
+        if (session.user.loginName==projectInstance.user.loginName||session.user.loginName == "admin"){
+            respond projectInstance
+        }else {
+            redirect(action: "index")
+        }
+
     }
 
     def create() {
         respond new Project(params)
     }
-
+   /* def beforeInterceptor =[action: this.&auth,except:['login','logout','create','index','show']]
+    def auth(){
+        def name ="${request.getAttribute("user").loginName}"
+        if (session.user.loginName!=name){
+            redirect(controller: "project",action: "index")
+        }
+    }*/
     @Transactional
     def save(Project projectInstance) {
         if (projectInstance == null) {
@@ -46,7 +62,11 @@ class ProjectController {
     }
 
     def edit(Project projectInstance) {
-        respond projectInstance
+        if (session.user.loginName==projectInstance.user.loginName||session.user.loginName == "admin"){
+            respond projectInstance
+        }else {
+            redirect(action: "index")
+        }
     }
 
     @Transactional
