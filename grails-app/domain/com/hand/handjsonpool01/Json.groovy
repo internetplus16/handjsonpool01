@@ -23,6 +23,6 @@ class Json {
 	Date lastUpdated
 	String toString()
 	{
-		return "${id},${placeholderUrl}"
+		return "${placeholderUrl}"
 	}
 }

@@ -1,5 +1,5 @@
 package com.hand.handjsonpool01
-import com.hand.*
+
 class Project {
     int id;
     String projectName;
