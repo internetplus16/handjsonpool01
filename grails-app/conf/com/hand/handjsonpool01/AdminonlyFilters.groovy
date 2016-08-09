@@ -5,10 +5,10 @@ class AdminonlyFilters {
     def filters = {
         all(controller:'user', action:'edit|delete') {
             before = {
-                if (session.user.loginName!="admin"){
+                /*if (session.user.loginName!="admin"){
                     redirect(controller: "user",action: "index")
                     return false;
-                }
+                }*/
             }
         }
     }
