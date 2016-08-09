@@ -13,6 +13,13 @@ class AdminonlyFilters {
                 }
 
             }
+            /*admindelete(controller: "user",action: "delete"){
+                before={
+                    if (session.user.loginName != "admin"){
+                        return false;
+                    }
+                }
+            }*/
         }
 
 
