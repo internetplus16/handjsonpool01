@@ -18,11 +18,13 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+
 		<div id="list-project" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
 			<table>
 			<thead>
 					<tr>
@@ -43,19 +45,22 @@
 
 				<g:each in="${projectInstanceList}" status="i" var="projectInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					<g:if test="${projectInstance.user.loginName==session.user.loginName||session.user.loginName=="admin"}">
-						<td><g:link action="show" id="${projectInstance.id}">${fieldValue(bean: projectInstance, field: "creationDate")}</g:link></td>
-					
-						<td>${fieldValue(bean: projectInstance, field: "description")}</td>
-					
-						<td><g:formatDate date="${projectInstance.lastUpdateDate}" /></td>
-					
-						<td>${fieldValue(bean: projectInstance, field: "projectName")}</td>
-					
-						<td>${fieldValue(bean: projectInstance, field: "user")}</td>
-					</g:if>
+
+						<g:if test="${projectInstance.user.loginName==session.user.loginName||session.user.loginName=="admin"||session.user.isNull}">
+							<td><g:link action="show" id="${projectInstance.id}">${fieldValue(bean: projectInstance, field: "creationDate")}</g:link></td>
+
+							<td>${fieldValue(bean: projectInstance, field: "description")}</td>
+
+							<td><g:formatDate date="${projectInstance.lastUpdateDate}" /></td>
+
+							<td>${fieldValue(bean: projectInstance, field: "projectName")}</td>
+
+							<td>${fieldValue(bean: projectInstance, field: "user")}</td>
+						</g:if>
+
 					</tr>
 				</g:each>
+
 				</tbody>
 			</table>
 			<div class="pagination">
