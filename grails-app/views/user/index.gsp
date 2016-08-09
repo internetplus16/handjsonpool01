@@ -6,6 +6,9 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+		<script>
+			window.onload=function(){}
+		</script>
 	</head>
 	<body>
 		<a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -39,7 +42,9 @@
 				<tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
+					<g:if test="${session.user.loginName==userInstance.loginName||session.user.loginName=="admin"}">
+
+
 						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "loginName")}</g:link></td>
 					
 						<td>${fieldValue(bean: userInstance, field: "password")}</td>
@@ -49,7 +54,7 @@
 						<td><g:formatDate date="${userInstance.creationDate}" /></td>
 					
 						<td><g:formatDate date="${userInstance.lastUpdateDate}" /></td>
-					
+					</g:if>
 					</tr>
 				</g:each>
 				</tbody>

@@ -17,12 +17,15 @@ class User {
         lastUpdateDate()
         project()
     }
+    def beforeInsert={
+        password=password.encodeAsSHA();
+    }
     static hasMany=[project:Project]
         String toString(){
         return "${loginName}"
-//            ,${creationDate}
     }
-//    static mappings = {
-//        "/index/"(view:"/index")
-//    }
+    static mappings = {
+        "/index/"(view:"/index")
+
+    }
 }
