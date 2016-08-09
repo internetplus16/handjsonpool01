@@ -29,7 +29,7 @@ class UserController {
     }
     def authenticate = {
         def user = User.findByLoginNameAndPassword(
-                params.loginName,params.password);
+                params.loginName,params.password.encodeAsSHA());
         if(user){
             session.user = user;
             flash.message = "Hello ${user.loginName}!";

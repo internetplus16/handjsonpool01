@@ -17,6 +17,9 @@ class User {
         lastUpdateDate()
         project()
     }
+    def beforeInsert={
+        password=password.encodeAsSHA();
+    }
     static hasMany=[project:Project]
         String toString(){
         return "${loginName}"
