@@ -37,7 +37,7 @@ class UserController {
         if(user){
             session.user = user;
             flash.message = "Hello ${user.loginName}!";
-            redirect(controller:"User",action:"index")
+            redirect(uri: "http://localhost:8080/handjsonpool01")
         }else{
             flash.message = "sorry,${params.loginName}. Please try again."
             redirect(action:"login");

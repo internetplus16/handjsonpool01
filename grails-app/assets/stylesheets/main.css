@@ -405,6 +405,7 @@ table {
 	border-collapse: collapse;
 	width: 100%;
 	margin-bottom: 1em;
+	table-layout: fixed;
 }
 
 tr {
@@ -422,8 +423,9 @@ tr>td:last-child, tr>th:last-child {
 td, th {
 	line-height: 1.5em;
 	padding: 0.5em 0.6em;
-	text-align: left;
+	text-align: center;
 	vertical-align: top;
+	word-wrap: break-word;
 }
 
 th {
