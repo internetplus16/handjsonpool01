@@ -15,11 +15,12 @@ class UserController {
     }
 
     def show(User userInstance) {
-        if (session.user.loginName==userInstance.loginName||session.user.loginName == "admin"){
+        /*if (session.user.loginName==userInstance.loginName||session.user.loginName == "admin"){
             respond userInstance
         }else {
             redirect(action: "index")
-        }
+        }*/
+        respond userInstance
     }
 
     def create() {

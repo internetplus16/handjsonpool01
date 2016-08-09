@@ -20,12 +20,12 @@ class ProjectController {
     }
 
     def show(Project projectInstance) {
-        if (session.user.loginName==projectInstance.user.loginName||session.user.loginName == "admin"){
+        /*if (session.user.loginName==projectInstance.user.loginName||session.user.loginName == "admin"){
             respond projectInstance
         }else {
             redirect(action: "index")
-        }
-
+        }*/
+        respond projectInstance
     }
 
     def create() {

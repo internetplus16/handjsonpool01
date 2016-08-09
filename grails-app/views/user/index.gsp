@@ -42,7 +42,7 @@
 				<tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					<g:if test="${session.user.loginName==userInstance.loginName||session.user.loginName=="admin"}">
+
 
 
 						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "loginName")}</g:link></td>
@@ -54,7 +54,7 @@
 						<td><g:formatDate date="${userInstance.creationDate}" /></td>
 					
 						<td><g:formatDate date="${userInstance.lastUpdateDate}" /></td>
-					</g:if>
+					%{--</g:if>--}%
 					</tr>
 				</g:each>
 				</tbody>
