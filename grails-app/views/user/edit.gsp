@@ -5,6 +5,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+
 	</head>
 	<body>
 		<a href="#edit-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -37,5 +38,18 @@
 				</fieldset>
 			</g:form>
 		</div>
+	<script>
+		window.onload = function(){
+			setTimeout(function(){
+				var input = document.getElementsByTagName('input');
+				for(var i=0;i<input.length;i++){
+					if(input[i].name =="loginName" ){
+						input[i].disabled = true;
+					}
+				}
+
+			},1000)
+		}
+	</script>
 	</body>
 </html>

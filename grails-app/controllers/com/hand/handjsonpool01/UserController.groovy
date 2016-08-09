@@ -15,7 +15,11 @@ class UserController {
     }
 
     def show(User userInstance) {
-        respond userInstance
+        if (session.user.loginName==userInstance.loginName||session.user.loginName == "admin"){
+            respond userInstance
+        }else {
+            redirect(action: "index")
+        }
     }
 
     def create() {
@@ -77,16 +81,18 @@ class UserController {
             respond userInstance.errors, view: 'edit'
             return
         }
-
-        userInstance.save flush: true
+        userInstance.password=userInstance.password.encodeAsSHA()
+        userInstance.save flush: true;
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
-                redirect userInstance
+                session.user = null;
+                redirect action: "login"
             }
             '*' { respond userInstance, [status: OK] }
         }
+
     }
 
     @Transactional
