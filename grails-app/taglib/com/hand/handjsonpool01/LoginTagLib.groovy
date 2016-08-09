@@ -9,6 +9,7 @@ class LoginTagLib {
             out<<"""${link(action: "logout",controller: "user"){"logout"}}"""
         }else {
             out<<"""${link(action: "login",controller: "user"){"login"}}"""
+            out<<"""${link(action: "create",controller: "user"){"register"}}"""
         }
     }
 }
