@@ -41,7 +41,7 @@
 				<tbody>
 				<g:each in="${jsonInstanceList}" status="i" var="jsonInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
+					%{--<g:if test="${jsonInstance.user.loginName==session.user.loginName||session.user.loginName=="admin"}">--}%
 						<td><g:link action="show" id="${jsonInstance.id}">${fieldValue(bean: jsonInstance, field: "placeholderUrl")}</g:link></td>
 					
 						<td>${fieldValue(bean: jsonInstance, field: "method")}</td>
@@ -53,7 +53,7 @@
 						<td><g:formatDate date="${jsonInstance.lastUpdated}" /></td>
 					
 						<td>${fieldValue(bean: jsonInstance, field: "project")}</td>
-					
+					%{--</g:if>--}%
 					</tr>
 				</g:each>
 				</tbody>

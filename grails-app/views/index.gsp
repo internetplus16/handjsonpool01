@@ -110,7 +110,34 @@
 			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
 			   content you may choose. Below is a list of controllers that are currently deployed in this application,
 			   click on each to execute its default action:</p>--}%
-
+		<div>
+			<form  name="formx"  align="center" >
+				<input type="text" name="txt" id="qu" size="60">&nbsp;&nbsp;<input type="submit" value="Send" onclick="check()" ><font size="4"></font></input><br/>
+				<script language="javascript">
+					function check(){
+						var a=formx.txt.value;
+						if(a=='')
+						{
+							window.alert('Url is null');
+						}
+						else
+						{
+							var a=formx.txt.value;
+							var b= a.match(/http:\/\/.+/);
+							if(b==null){
+								window.alert('Url is wrong');
+								return false;
+							}
+							else{
+								window.open(a);
+//								window.location=a;
+//								window.alert(a);
+								return  true;
+							}
+						}
+					}
+				</script></form>
+		</div>
 			<div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>

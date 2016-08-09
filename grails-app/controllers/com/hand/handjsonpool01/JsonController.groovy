@@ -26,12 +26,12 @@ class JsonController {
                    }
                    else
                    {
-                       render("No found json")
+                       render("Counld not found jsonData")
                    }
                }
                else
                {
-                   render("No found json")
+                   render("Counld not jsonData")
                }
            }
            else
