@@ -7,7 +7,11 @@ class UrlMappings {
             }
         }
 
-        "/"(controller: "user",action: "login")
+        "/"(view: "/index")
         "500"(view:'/error')
-	}
+        "/json/$project/$user/$method"(controller: 'json',action: 'index')
+        "/json"(controller: 'json',action: 'index')
+//
+
+}
 }

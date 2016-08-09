@@ -10,7 +10,7 @@ class User {
 
     static constraints = {
         id ()
-        loginName(blank:false)
+        loginName(blank:false,unique: true)
         password(password:true)
         phone()
         creationDate()
@@ -19,9 +19,10 @@ class User {
     }
     static hasMany=[project:Project]
         String toString(){
-        return "${loginName},${creationDate}"
+        return "${loginName}"
+//            ,${creationDate}
     }
-    static mappings = {
-        "/index/"(view:"/index")
-    }
+//    static mappings = {
+//        "/index/"(view:"/index")
+//    }
 }
