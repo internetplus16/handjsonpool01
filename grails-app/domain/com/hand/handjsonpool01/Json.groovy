@@ -5,7 +5,7 @@ class Json {
     static constraints = {
 		id()
 		placeholderUrl(blank: false)
-		method(inList:["Get","Posts","Delete","Put"])
+		method(inList:["Posts","Delete","Put","Get"])
 		jsonData(blank: false)
 		dateCreated()
 		lastUpdated()
