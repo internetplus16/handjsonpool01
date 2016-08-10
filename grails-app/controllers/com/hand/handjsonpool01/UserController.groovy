@@ -15,12 +15,15 @@ class UserController {
     }
 
     def show(User userInstance) {
-        if (session.user.loginName==userInstance.loginName||session.user.loginName == "admin"){
+        /*if (session.user.loginName==userInstance.loginName||session.user.loginName == "admin"){
             respond userInstance
         }else {
             redirect(action: "index")
         }
 //        respond userInstance
+        }*/
+        respond userInstance
+
     }
 
     def create() {
@@ -38,7 +41,7 @@ class UserController {
         if(user){
             session.user = user;
             flash.message = "Hello ${user.loginName}!";
-            redirect(/*controller:"User",action:"index"*/ uri: "http://localhost:8080/handjsonpool01")
+            redirect(uri: "http://localhost:8080/handjsonpool01")
         }else{
             flash.message = "sorry,${params.loginName}. Please try again."
             redirect(action:"login");

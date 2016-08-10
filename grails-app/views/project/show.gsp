@@ -7,7 +7,7 @@
 		<g:set var="entityName" value="${message(code: 'project.label', default: 'Project')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
-	<body>
+	<div>
 		<a href="#show-project" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -80,7 +80,8 @@
 				</g:if>
 			
 			</ol>
-		<g:if test="${projectInstance.user.loginName==session.user.loginName||session.user.loginName=="admin"}">
+
+<g:if test="${projectInstance.user.loginName==session.user.loginName||session.user.loginName=="admin"}">
 			<g:form url="[resource:projectInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${projectInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
@@ -88,6 +89,7 @@
 				</fieldset>
 			</g:form>
 			</g:if>
+
 		</div>
 	</body>
 </html>

@@ -1,3 +1,4 @@
+<%@ page import="com.hand.handjsonpool01.JsonController; com.hand.handjsonpool01.Json" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -144,6 +145,7 @@
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.logicalPropertyName}</g:link></li>
 					</g:each>
+
 				</ul>
 
 
@@ -153,6 +155,7 @@
 					<p class="controller" ><g:link    controller="user" action="show">user</g:link></p>
 				</div>--}%
 
+				%{--<div><g:link controller="${com.hand.handjsonpool01.JsonController.logicalPropertyName}">${com.hand.handjsonpool01.JsonController.logicalPropertyName}</g:link></div>--}%
 			</div>
 		%{--<div><input ></div>--}%
 		</div>

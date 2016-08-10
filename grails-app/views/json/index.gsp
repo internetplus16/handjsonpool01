@@ -41,7 +41,8 @@
 				<tbody>
 				<g:each in="${jsonInstanceList}" status="i" var="jsonInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					%{--<g:if test="${jsonInstance.user.loginName==session.user.loginName||session.user.loginName=="admin"}">--}%
+					%{--<g:if test="${jsonInstance.project.projectName==params.project.projectName.toString()}">--}%
+
 						<td><g:link action="show" id="${jsonInstance.id}">${fieldValue(bean: jsonInstance, field: "placeholderUrl")}</g:link></td>
 					
 						<td>${fieldValue(bean: jsonInstance, field: "method")}</td>
