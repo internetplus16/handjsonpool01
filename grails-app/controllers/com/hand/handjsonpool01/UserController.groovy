@@ -20,6 +20,7 @@ class UserController {
         }else {
             redirect(action: "index")
         }
+//        respond userInstance
     }
 
     def create() {

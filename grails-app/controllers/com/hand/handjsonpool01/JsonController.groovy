@@ -18,8 +18,8 @@ class JsonController {
            if(j.project.toString()==params.project.toString())
            {
 //               render(session.getAttribute("user").toString())
-               if(session.getAttribute("user").toString()==params.user.toString())
-               {
+               /*if(session.getAttribute("user").toString()==params.user.toString()||params.user.toString()=='admin')
+               {*/
                    if(meth[params.method.toString()].toString()==j.method.toString())
                    {
                        render(j.jsonData)
@@ -28,11 +28,11 @@ class JsonController {
                    {
                        render("Counld not found jsonData")
                    }
-               }
-               else
+//               }
+               /*else
                {
                    render("Counld not jsonData")
-               }
+               }*/
            }
            else
            {

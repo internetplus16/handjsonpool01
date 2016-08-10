@@ -15,8 +15,10 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+<g:if test="${userInstanceList.loginName==session.user.loginName||session.user.loginName=="admin"}">
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+	</g:if>
+	</ul>
 		</div>
 		<div id="list-user" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>

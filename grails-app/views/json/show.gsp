@@ -78,12 +78,14 @@
 				</g:if>
 			
 			</ol>
+		<g:if test="${jsonInstance.project.user.loginName==session.user.loginName||session.user.loginName=="admin"}">
 			<g:form url="[resource:jsonInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${jsonInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+		</g:if>
 		</div>
 	</body>
 </html>

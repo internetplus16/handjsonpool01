@@ -46,7 +46,7 @@
 				<g:each in="${projectInstanceList}" status="i" var="projectInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-						<g:if test="${projectInstance.user.loginName==session.user.loginName||session.user.loginName=="admin"}">
+
 							<td><g:link action="show" id="${projectInstance.id}">${fieldValue(bean: projectInstance, field: "creationDate")}</g:link></td>
 
 							<td>${fieldValue(bean: projectInstance, field: "description")}</td>
@@ -56,7 +56,7 @@
 							<td>${fieldValue(bean: projectInstance, field: "projectName")}</td>
 
 							<td>${fieldValue(bean: projectInstance, field: "user")}</td>
-						</g:if>
+						%{--</g:if>--}%
 
 					</tr>
 				</g:each>

@@ -145,6 +145,14 @@
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.logicalPropertyName}</g:link></li>
 					</g:each>
 				</ul>
+
+
+				%{--<div align="center">
+
+					<p class="controller" ><g:link    controller="user" action="index">user</g:link></p>
+					<p class="controller" ><g:link    controller="user" action="show">user</g:link></p>
+				</div>--}%
+
 			</div>
 		%{--<div><input ></div>--}%
 		</div>
