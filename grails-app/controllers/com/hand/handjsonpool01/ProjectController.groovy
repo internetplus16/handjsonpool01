@@ -46,6 +46,13 @@ class ProjectController {
             return
         }
 
+        if (projectInstance.user.loginName != session.user.loginName&&session.user.loginName!="admin"){
+            flash.message="sorry,you can't create others"
+            redirect(action: "index")
+            return false;
+
+        }
+
         if (projectInstance.hasErrors()) {
             respond projectInstance.errors, view: 'create'
             return

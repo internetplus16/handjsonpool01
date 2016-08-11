@@ -46,7 +46,7 @@
 			setTimeout(function(){
 				var input = document.getElementsByTagName('input');
 				for(var i=0;i<input.length;i++){
-					if(input[i].name =="loginName" ){
+					if(input[i].name =="loginName"){
 						input[i].disabled = true;
 					}
 				}

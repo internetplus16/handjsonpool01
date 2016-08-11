@@ -6,10 +6,10 @@ class LoginTagLib {
     def loginControl = {
         if (request.getSession(false)&&session.user){
             out<<"hello ${session.user.loginName}"
-            out<<"""${link(action: "logout",controller: "user"){"logout"}}"""
+            out<<"""${link(action: "logout",controller: "user"){"Logout"}}"""
         }else {
-            out<<"""${link(action: "login",controller: "user"){"login"}}"""
-            out<<"""${link(action: "create",controller: "user"){"register"}}"""
+            out<<"""${link(action: "login",controller: "user"){"Login"}}"""
+            out<<"""${link(action: "create",controller: "user"){"Register"}}"""
         }
     }
 }

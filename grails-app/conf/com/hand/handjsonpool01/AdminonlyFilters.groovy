@@ -6,7 +6,7 @@ class AdminonlyFilters {
             all(controller: 'user|project|json', action: 'show|index|delete|edit|update') {
                 before = {
                     if (!session?.user){
-                        flash.message="please login"
+                        flash.message="Please login"
                         redirect(controller: "user",action: "login")
                         return false;
                     }

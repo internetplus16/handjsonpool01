@@ -9,6 +9,12 @@
 		<script>
 			window.onload=function(){}
 		</script>
+		<style>
+			/*a:link
+			{
+				color:#48802C;
+			}*/
+		</style>
 	</head>
 	<body>
 		<a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

@@ -9,9 +9,7 @@ class UrlMappings {
 
         "/"(view: "/index")
         "500"(view:'/error')
-        "/json/$project/$user/$method"(controller: 'json',action: 'index')
-        "/json"(controller: 'json',action: 'index')
-//
-
+        "/json/$user/$project/$method"(controller: 'json',action: 'index')
+//        "/json"(controller: 'json',action: 'index')
 }
 }

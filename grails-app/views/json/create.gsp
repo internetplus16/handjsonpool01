@@ -25,6 +25,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+			%{--<g:if test="${jsonInstance.project.user.loginName == session.user.loginName}">--}%
 			<g:form url="[resource:jsonInstance, action:'save']" >
 				<fieldset class="form">
 					<g:render template="form"/>
@@ -33,6 +34,7 @@
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
 			</g:form>
+			%{--</g:if>--}%
 		</div>
 	</body>
 </html>

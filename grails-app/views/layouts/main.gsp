@@ -15,15 +15,40 @@
   		<asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
 		<g:layoutHead/>
+
+	<style type="text/css">
+	a:link {
+		text-decoration: none;
+		color:#48802C;
+	}
+	a:visited {
+		text-decoration: none;
+		color:#48802C;
+	}
+	a:hover {
+		text-decoration: none;
+		color:purple;
+	}
+	a:active {
+		text-decoration: none;
+		color:#8FBC8F;
+	}
+	#foot{
+		background-color:white;
+		/*background: local;*/
+		/*hight:0em;*/
+		padding:0.3em 0em 1em 1em;
+	}
+	</style>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
+		%{--<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>--}%
 
 		%{--<g:if test="${session.user}">--}%
 			<g:render template="/layouts/header"/>
 		%{--</g:if>--}%
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
+	<div class="footer" role="contentinfo" id="foot"><g:render template="/layouts/footer"/></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 	</body>
 </html>

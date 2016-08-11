@@ -5,7 +5,7 @@ import com.hand.handjsonpool01.User
 class BootStrap {
 
     def init = { servletContext ->
-        def admin = new User(
+        /*def admin = new User(
                 loginName: "admin",
                 password: "admin",
                 phone: "XXX-XXXX-XXXX",
@@ -55,9 +55,8 @@ class BootStrap {
 
         def jso = new Json(
                 project : prj2,
-                placeholderUrl:"http://localhost:8080/handjsonpool01/json/test/jdoe/1",
+                placeholderUrl:"/jdoe/test/1",
                 method : "Posts",
-//                JsonData : "{\"User\":\"jdoe\",\"Project\":\"test\",\"Method\":\"Posts\"}",
                 jsonData : "{\"User\":\"jdoe\",\"Project\":\"test\",\"Method\":\"Posts\"}",
                 dateCreated:new Date(),
                 lastUpdated:new Date()
@@ -65,7 +64,7 @@ class BootStrap {
         jso.save()
         if (jso.hasErrors()){
             print(jso.errors)
-        }
+        }*/
     }
     def destroy = {
     }

@@ -9,39 +9,31 @@ class JsonController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def format(String jsd)
+    {
+        String fjsd=jsd.replace('}','/i')
+        return fjsd
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Json.list(params), model: [jsonInstanceCount: Json.count()]
-        def meth=["1":"Posts","2":"Delete","3":"Put","4":"Get"]//Get:查，Posts:增,Put:改,Delete:删
-        for(j in Json.list(params))
-        {
-           if(j.project.toString()==params.project.toString())
-           {
-//               render(session.getAttribute("user").toString())
-               /*if(session.getAttribute("user").toString()==params.user.toString()||params.user.toString()=='admin')
-               {*/
-                   if(meth[params.method.toString()].toString()==j.method.toString())
-                   {
-                       render(j.jsonData)
-                   }
-                   else
-                   {
-                       render("Counld not find jsonData")
-                   }
-//               }
-               /*else
-               {
-
-                   render("Counld not jsonData")
-               }*/
-
-                   render("Counld not find jsonData")
-
-           }
-           else
-           {
-               respond Json.list(params), model: [jsonInstanceCount: Json.count()]
-           }
+        def meth = ["1": "Posts", "2": "Delete", "3": "Put", "4": "Get"]//Get:查，Posts:增,Put:改,Delete:删
+        for (j in Json.list(params)) {
+            if ( j.project.user.toString()== params.user.toString()) {
+                if (j.project.toString() == params.project.toString()) {
+                    if (meth[params.method.toString()].toString() == j.method.toString()) {
+//                        render(format(j.jsonData.toString()))
+                        render(j.jsonData)
+//                        render(session.getAttribute("user").toString()+" "+params.user.toString())
+                    }
+//                }
+//            }
+                    /*if(session.getAttribute("user").toString()==params.user.toString()||params.user.toString()=='admin'){
+                render(session.getAttribute("user").toString()+" "+params.user.toString())
+            }*/
+                }
+            }
         }
     }
 
@@ -58,6 +50,13 @@ class JsonController {
         if (jsonInstance == null) {
             notFound()
             return
+        }
+
+        if (jsonInstance.project.user.loginName != session.user.loginName&&session.user.loginName!="admin"){
+            flash.message="sorry,you can't create others"
+            redirect(action: "index")
+            return false;
+
         }
 
         if (jsonInstance.hasErrors()) {

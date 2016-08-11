@@ -10,7 +10,7 @@ class UserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 2, 100)
         respond User.list(params), model: [userInstanceCount: User.count()]
     }
 
@@ -43,7 +43,7 @@ class UserController {
             flash.message = "Hello ${user.loginName}!";
             redirect(uri: "http://localhost:8080/handjsonpool01")
         }else{
-            flash.message = "sorry,${params.loginName}. Please try again."
+            flash.message = "Sorry,please try again!"
             redirect(action:"login");
         }
     }
